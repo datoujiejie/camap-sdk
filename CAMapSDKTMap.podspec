@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     
-    s.name             = 'CAMapSDK'
+    s.name             = 'CAMapSDKTMap'
     s.version          = '1.0.4'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.summary          = '地图融合SDK'
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/datoujiejie/camap-sdk'
 
     s.author           = "datoujiejie"
-    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => s.version }
+    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => "main" }
     
     s.user_target_xcconfig = {'OTHER_LDFLAGS' => ['-ObjC']}
     valid_archs = ['x86_64','arm64']
@@ -33,8 +33,15 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "12.0"
     s.requires_arc = true
     s.static_framework = true
-
-    s.vendored_frameworks = 'CAMapSDK.xcframework'
+    
+    s.subspec 'TMAP' do |tmap|
+        tmap.vendored_frameworks = 'CAMapSDKTMap.xcframework'
+        tmap.dependency 'CAMapSDK'
+        tmap.dependency 'TencentNavKit'
+        tmap.dependency 'libwebp'
+        tmap.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','AudioToolbox','JavaScriptCore','Security','CoreImage','AudioToolbox','ImageIO','QuartzCore','CoreGraphics','CoreText'
+        tmap.libraries = 'c++', 'resolv', 'z', 'sqlite3', 'bz2', 'xml2', 'iconv', 'c++abi'
+    end
         
     s.xcconfig = {
         'VALID_ARCHS' =>  valid_archs.join(' '),

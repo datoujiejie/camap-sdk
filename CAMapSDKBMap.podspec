@@ -9,17 +9,17 @@
 Pod::Spec.new do |s|
     
     s.name             = 'CAMapSDKBMap'
-    s.version          = '1.0.3'
+    s.version          = '1.0.4'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.summary          = '地图融合SDK'
     s.description      = <<-DESC
     封装常见地图SDK
     DESC
     
-    s.homepage         = 'https://github.com/datoujiejie/CAMAPSDK'
+    s.homepage         = 'https://github.com/datoujiejie/camap-sdk'
 
     s.author           = "datoujiejie"
-    s.source           = { :git => 'git@github.com:datoujiejie/CAMAPSDK.git', :tag => "main" }
+    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => s.version }
     
     s.user_target_xcconfig = {'OTHER_LDFLAGS' => ['-ObjC']}
     valid_archs = ['x86_64','arm64']
@@ -33,20 +33,11 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "12.0"
     s.requires_arc = true
     s.static_framework = true
-    
-    # 默认的使用模块
-    # s.default_subspec = 'Core'
-    
-    # s.subspec 'Core' do |core|
-    #     core.source_files = 'CAMapSDK/Core/**/*.{h,m}'
-    #     core.frameworks = 'UIKit', 'Foundation','CoreLocation'
-    # end
     s.subspec 'BMAP' do |bmap|
-        bmap.vendored_frameworks = 'CAMapSDK-1.0.3/CAMapSDK.xcframework'
+        bmap.vendored_frameworks = 'CAMapSDKBMap.xcframework'
+        bmap.dependency 'CAMapSDK'
         bmap.dependency 'BaiduMapKit'
         bmap.dependency 'BMKLocationKit'
-#        bmap.dependency 'BaiduNaviKit-All'
-        bmap.source_files = 'CAMapSDK/Adapter/BMap/**/*.{h,m}'
         bmap.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','AudioToolbox','JavaScriptCore','Security','CoreImage','AudioToolbox','ImageIO','QuartzCore','CoreGraphics','CoreText'
         bmap.libraries = 'c++', 'resolv', 'z', 'sqlite3', 'bz2', 'xml2', 'iconv', 'c++abi'
     end

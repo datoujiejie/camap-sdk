@@ -1,0 +1,6 @@
+framework module CAMapSDKTMap {
+  umbrella header "CAMapSDKTMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
