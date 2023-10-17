@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/datoujiejie/camap-sdk'
 
     s.author           = "datoujiejie"
-    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => "main" }
+    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => s.version }
     
     s.user_target_xcconfig = {'OTHER_LDFLAGS' => ['-ObjC']}
     valid_archs = ['x86_64','arm64']
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
     s.subspec 'TMAP' do |tmap|
         tmap.vendored_frameworks = 'CAMapSDKTMap.xcframework'
         tmap.dependency 'CAMapSDK'
-        tmap.dependency 'TencentNavKit'
+        tmap.dependency 'TencentNavKit','6.3.4'
         tmap.dependency 'libwebp'
         tmap.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','AudioToolbox','JavaScriptCore','Security','CoreImage','AudioToolbox','ImageIO','QuartzCore','CoreGraphics','CoreText'
         tmap.libraries = 'c++', 'resolv', 'z', 'sqlite3', 'bz2', 'xml2', 'iconv', 'c++abi'
