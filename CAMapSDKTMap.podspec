@@ -37,8 +37,10 @@ Pod::Spec.new do |s|
     s.subspec 'TMAP' do |tmap|
         tmap.vendored_frameworks = 'CAMapSDKTMap.xcframework'
         tmap.dependency 'CAMapSDK'
-        tmap.dependency 'TencentNavKit','6.3.4'
         tmap.dependency 'libwebp'
+        tmap.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
+        tmap.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+        tmap.dependency 'TencentNavKit','6.3.4'
         tmap.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'CoreLocation', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate','AudioToolbox','JavaScriptCore','Security','CoreImage','AudioToolbox','ImageIO','QuartzCore','CoreGraphics','CoreText'
         tmap.libraries = 'c++', 'resolv', 'z', 'sqlite3', 'bz2', 'xml2', 'iconv', 'c++abi'
     end
