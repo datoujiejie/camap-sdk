@@ -36,10 +36,15 @@ typedef NS_ENUM(NSInteger,CAMapType) {
 
 /// sdk初始化
 /// - Parameters:
-///   - apiKey: 对应sdk的key(考虑从平台分配？)
+///   - apiKey: 对应sdk的key(平台分配)
 ///   - type: 地图渠道
 +(void)sdkInit:(NSString *)apiKey type:(CAMapType)type;
 
+/// sdk初始化
+/// - Parameters:
+///   - apiKey: 对应sdk的key(原始key)
+///   - type: 地图渠道
++(void)sdkInitOrigin:(NSString *)apiKey type:(CAMapType)type;
 
 /// 是否显示隐私政策
 /// - Parameter show: 是否显示
