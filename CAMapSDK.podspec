@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/datoujiejie/camap-sdk'
 
     s.author           = "datoujiejie"
-    s.source           = { :git => 'git@github.com:datoujiejie/camap-sdk.git', :tag => s.version }
+    s.source           = { :git => 'https://github.com/datoujiejie/camap-sdk.git', :tag => s.version }
     
     s.user_target_xcconfig = {'OTHER_LDFLAGS' => ['-ObjC']}
     valid_archs = ['x86_64','arm64']
