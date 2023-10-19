@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
     
     s.name             = 'CAMapSDKAMap'
-    s.version          = '1.0.4'
+    s.version          = '1.0.6'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.summary          = '地图融合SDK'
     s.description      = <<-DESC
